@@ -84,7 +84,10 @@ function renderCards(data) {
         // 创建整个卡片的链接包装器
         const cardLink = document.createElement('a');
         cardLink.href = card.url ? card.url : '#';
-        cardLink.target = '_blank';
+        // 只有当url不是#时才在新窗口打开
+        if (card.url && card.url !== '#') {
+            cardLink.target = '_blank';
+        }
         cardLink.className = 'card-link';
         cardLink.style.textDecoration = 'none';
         cardLink.style.color = 'inherit';
