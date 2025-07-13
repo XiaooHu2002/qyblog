@@ -185,11 +185,6 @@ body {
     transition: all 0.2s;
     font-size: 0.98rem;
 }
-.card-link:hover {
-    background: #b6e0d4;
-    color: #fff;
-    border-color: #b6e0d4;
-}
 
 /* 页脚 */
 .footer {
