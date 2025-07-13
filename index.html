@@ -397,6 +397,17 @@
     .site-cards .card .btn {
         display: none !important;
     }
+    .site-cards .card-link {
+        display: block !important;
+        width: 100% !important;
+        height: 100% !important;
+        text-decoration: none !important;
+        color: inherit !important;
+    }
+    .site-cards .card-link:hover {
+        text-decoration: none !important;
+        color: inherit !important;
+    }
 }
 @media (max-width: 600px) {
     section.glass.p-4.mb-4 {
@@ -406,6 +417,19 @@
 .card {
     max-width: 300px !important;
     width: 90% !important;
+}
+.card-link {
+    text-decoration: none !important;
+    color: inherit !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    transition: transform 0.2s ease !important;
+}
+.card-link:hover {
+    text-decoration: none !important;
+    color: inherit !important;
+    transform: translateY(-2px) !important;
 }
 .site-cards {
     gap: 16px 8px !important;

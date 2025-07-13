@@ -80,6 +80,18 @@ function renderCards(data) {
     data.cards.forEach(card => {
         const col = document.createElement('div');
         col.className = 'col-md-4 d-flex justify-content-center';
+        
+        // 创建整个卡片的链接包装器
+        const cardLink = document.createElement('a');
+        cardLink.href = card.url ? card.url : '#';
+        cardLink.target = '_blank';
+        cardLink.className = 'card-link';
+        cardLink.style.textDecoration = 'none';
+        cardLink.style.color = 'inherit';
+        cardLink.style.display = 'block';
+        cardLink.style.width = '100%';
+        cardLink.style.height = '100%';
+        
         const cardDiv = document.createElement('div');
         cardDiv.className = 'card glass p-4 text-center';
         // 图标支持自定义
@@ -106,7 +118,9 @@ function renderCards(data) {
             btn.target = '_blank';
             cardDiv.appendChild(btn);
         }
-        col.appendChild(cardDiv);
+        
+        cardLink.appendChild(cardDiv);
+        col.appendChild(cardLink);
         cardsContainer.appendChild(col);
     });
 }
@@ -116,7 +130,9 @@ function renderFooter(data) {
     if (!footer || !data.footer) return;
     let html = '';
     if (data.footer.copyright) html += `<div>${data.footer.copyright}</div>`;
-    if (data.footer.icp) html += `<div style="margin-top:2px;">${data.footer.icp}</div>`;
+    if (data.footer.icp) {
+        html += `<div style="margin-top:2px;"><a href="https://beian.miit.gov.cn/" target="_blank" style="color: inherit; text-decoration: none;">${data.footer.icp}</a></div>`;
+    }
     if (data.footer.site_start) {
         const start = new Date(data.footer.site_start);
         const now = new Date();
