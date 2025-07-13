@@ -14,6 +14,10 @@ function getSkillColor(idx) {
 }
 
 function renderSidebar(data) {
+    // 更新页面标题
+    if (data.title) {
+        document.title = data.title;
+    }
     document.querySelector('.avatar-xl').src = data.avatar;
     document.querySelector('.nickname').textContent = data.name;
     document.querySelector('.signature').textContent = data.bio;
