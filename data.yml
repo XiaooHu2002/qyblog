@@ -1,0 +1,60 @@
+name: 严千屹
+bio: 运维爱好者
+#头像
+avatar: img/logo.png
+location: 中国·广东
+#联系方式
+contacts:
+  - type: github
+    enable: true
+    url: https://github.com/XiaooHu2002
+    icon: fab fa-github
+  - type: email
+    enable: true
+    url: mailto:XiaooHu2002@163.com
+    icon: fas fa-envelope
+  - type: qq
+    enable: true
+    url: ""
+    icon: fab fa-qq
+  #图片为空，你可以替换你自己的微信图片，写路径即可
+  - type: wechat
+    enable: true
+    url: img/wechat_qr.png
+    icon: fab fa-weixin
+  - type: bilibili
+    enable: true
+    url: https://space.bilibili.com/xxxxxx
+    icon: fa-brands fa-bilibili
+#成长轨迹
+github:
+  username: XiaooHu2002
+  color: 409ba5
+#技能标签
+skills:
+  - 云计算
+  - Linux
+  - K8s
+#https://fontawesome.com/v4/icons/
+#图标查询网站
+cards:
+  - name: 博客
+    dis: 记录栏目日常
+    btn: 进入博客
+    ico: fa fa-bookmark
+    url: https://blog.qianyios.top
+  - name: 云盘
+    dis: 存储收集文件
+    btn: 进入云盘
+    ico: fas fa-cloud
+    url: #
+  - name: 实验室
+    dis: 收集有趣HTML作品
+    btn: 进入实验室
+    ico: fas fa-flask
+    url: #
+#页脚
+footer:
+  copyright: "© 2024 严千屹"
+  icp: "粤ICP备2024250479号"
+  site_start: "2025-07-13"

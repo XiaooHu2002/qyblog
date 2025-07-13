@@ -1,0 +1,29 @@
+{
+  "name": "qyblog",
+  "version": "1.0.0",
+  "description": "严千屹个人博客 - 简约优雅的纯静态博客网站",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "live-server --port=8000",
+    "build": "echo '静态网站，无需构建'"
+  },
+  "keywords": [
+    "blog",
+    "personal",
+    "static",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "严千屹",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/qyblog.git"
+  },
+  "homepage": "https://yourusername.github.io/qyblog",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+} 

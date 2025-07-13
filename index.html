@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>严千屹 - 个人主页</title>
+    <link rel="icon" href="/img/favicon.ico">
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Font Awesome 6 Free', 'Font Awesome 6 Brands', 'Montserrat', 'Segoe UI', Arial, sans-serif;
+        }
+        .main-layout {
+            display: flex;
+            flex-direction: row;
+            gap: 40px;
+            max-width: 1400px;
+            margin: 40px auto 0 auto;
+            min-height: 90vh;
+        }
+        .sidebar {
+            width: 340px;
+            min-width: 260px;
+            background: rgba(255,255,255,0.30);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px 0 rgba(31,38,135,0.18);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px 30px 20px;
+            margin-bottom: 30px;
+            z-index: 10;
+        }
+        .avatar-xl {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #fff;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+            transition: transform 0.7s cubic-bezier(.4,2,.6,1);
+        }
+        .avatar-xl:hover {
+            transform: rotate(360deg);
+        }
+        .nickname {
+            font-family: 'Font Awesome 6 Free', 'Font Awesome 6 Brands', 'Montserrat', 'Segoe UI', Arial, sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #1a2636;
+            text-shadow: 0 2px 16px #fff, 0 2px 8px #0006;
+            background: rgba(255,255,255,0.7);
+            border-radius: 12px;
+            padding: 0.2em 0.7em;
+            display: inline-block;
+            margin-top: 18px;
+        }
+        .signature {
+            font-family: 'Font Awesome 6 Free', 'Font Awesome 6 Brands', 'Montserrat', 'Segoe UI', Arial, sans-serif;
+            color: #2d3a4a;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 1px 8px #fff, 0 1px 4px #0002;
+            background: rgba(255,255,255,0.6);
+            border-radius: 8px;
+            padding: 0.2em 0.7em;
+            display: inline-block;
+        }
+        .social-btns {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 18px;
+            width: 100%;
+        }
+        .social-btns a {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #1a2636;
+            background: rgba(255,255,255,0.5) !important;
+            border-radius: 50%;
+            padding: 6px 10px;
+            transition: background 0.2s, color 0.2s;
+            font-family: 'Font Awesome 6 Free', 'Font Awesome 6 Brands', 'Montserrat', 'Segoe UI', Arial, sans-serif;
+            box-shadow: none !important;
+            border: none !important;
+        }
+        .social-btns a:hover {
+            color: #6bc5ff;
+            background: #e6f7ff !important;
+        }
+        .info-card {
+            min-width: 220px;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 1.2rem;
+            color: #1a2636;
+            background: rgba(255,255,255,0.8);
+            font-weight: 500;
+            font-family: 'Font Awesome 6 Free', 'Font Awesome 6 Brands', 'Montserrat', 'Segoe UI', Arial, sans-serif;
+            border-radius: 16px;
+            text-align: center;
+        }
+        .badge {
+            font-size: 1rem;
+            margin: 0.2rem 0.3rem;
+            box-shadow: 0 1px 4px #fff8;
+            font-family: 'Font Awesome 6 Free', 'Font Awesome 6 Brands', 'Montserrat', 'Segoe UI', Arial, sans-serif;
+        }
+        .content-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        @media (max-width: 1000px) and (min-width: 601px) {
+            .main-layout {
+                flex-direction: row !important;
+                gap: 24px !important;
+                max-width: 98vw !important;
+                align-items: flex-start !important;
+                justify-content: center !important;
+                transform: scale(0.92);
+                margin: 20px auto 0 auto !important;
+            }
+            .sidebar {
+                width: 260px !important;
+                min-width: 180px !important;
+                border-radius: 18px !important;
+                box-shadow: 0 4px 18px rgba(31,38,135,0.10) !important;
+                margin-bottom: 0 !important;
+                position: static !important;
+                top: unset !important;
+                align-self: flex-start !important;
+                z-index: 1 !important;
+                padding: 24px 10px 18px 10px !important;
+            }
+            .content-area {
+                width: 100% !important;
+                padding: 0 6px !important;
+                transform: scale(0.97);
+            }
+        }
+        @media (max-width: 600px) {
+            .main-layout {
+                flex-direction: column !important;
+                gap: 0 !important;
+                align-items: center !important;
+                transform: none !important;
+                margin: 0 !important;
+            }
+            .sidebar {
+                width: 100% !important;
+                min-width: 0 !important;
+                border-radius: 0 0 24px 24px !important;
+                box-shadow: none !important;
+                margin-bottom: 0 !important;
+                padding: 40px 6px 18px 6px !important;
+            }
+            .content-area {
+                width: 100% !important;
+                padding: 0 10px !important;
+                transform: none !important;
+            }
+        }
+        @media (min-width: 1001px) {
+            .main-layout {
+                margin: 40px auto 0 auto !important;
+                justify-content: center !important;
+                max-width: 1400px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-layout">
+        <!-- 左侧信息栏 -->
+        <aside class="sidebar">
+            <img src="img/logo.png" class="avatar-xl mb-3" alt="avatar">
+            <div class="nickname">严千屹</div>
+            <div class="signature">全栈开发者 | 热爱创造和分享 | 让代码点亮生活</div>
+            <div class="social-btns mt-2 mb-3">
+                <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" title="邮箱"><i class="fas fa-envelope"></i></a>
+                <a href="#" title="QQ"><i class="fab fa-qq"></i></a>
+                <a href="#" title="微信"><i class="fab fa-weixin"></i></a>
+                <a href="#" title="Bilibili"><i class="fab fa-bilibili"></i></a>
+            </div>
+            <div class="info-card glass p-3 mb-2" id="location-area"></div>
+            <div class="info-card glass p-3">
+                <div class="skills-box d-flex flex-wrap"></div>
+            </div>
+        </aside>
+        <!-- 右侧内容区 -->
+        <main class="content-area">
+            <section class="glass p-4 mb-4">
+                <img id="github-chart" src="https://ghchart.rshah.org/409ba5/XiaooHu2002" alt="XiaooHu2002's Github Chart" style="width:100%;max-width:720px;display:block;margin:0 auto;" />
+            </section>
+            <div class="row site-cards g-4 mb-4 justify-content-center">
+                <div class="col-md-4 d-flex justify-content-center">
+                    <div class="card glass p-4 text-center">
+                        <div class="card-icon text-info"><i class="fas fa-robot"></i></div>
+                        <h5 class="fw-bold">博客</h5>
+                        <div class="mb-2">记录栏目日常</div>
+                        <a href="#" class="btn btn-outline-info btn-sm">进入博客</a>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex justify-content-center">
+                    <div class="card glass p-4 text-center">
+                        <div class="card-icon text-warning"><i class="fas fa-cloud"></i></div>
+                        <h5 class="fw-bold">云盘</h5>
+                        <div class="mb-2">存储收集文件</div>
+                        <a href="#" class="btn btn-outline-warning btn-sm">进入云盘</a>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex justify-content-center">
+                    <div class="card glass p-4 text-center">
+                        <div class="card-icon text-success"><i class="fas fa-flask"></i></div>
+                        <h5 class="fw-bold">实验室</h5>
+                        <div class="mb-2">收集有趣html作品</div>
+                        <a href="#" class="btn btn-outline-success btn-sm">进入实验室</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer id="site-footer" style="display:flex;justify-content:center;align-items:center;width:100%;position:relative;margin:40px 0 18px 0;">
+      <div id="footer-content" style="background:rgba(255,255,255,0.95);border-radius:16px;padding:14px 32px;box-shadow:0 2px 12px #0001;font-size:1rem;color:#333;display:inline-block;text-align:center;min-width:180px;max-width:90vw;"></div>
+    </footer>
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/js-yaml.min.js"></script>
+    
+    <script src="js/anime.min.js"></script>
+    <script src="js/index.umd.js"></script>
+    <script src="js/dynamic-data.js"></script>
+    <style>
+@media (max-width: 600px) {
+    .sidebar {
+        padding: 10px 2px 6px 2px !important;
+    }
+    .avatar-xl {
+        width: 90px !important;
+        height: 90px !important;
+        margin-bottom: 8px !important;
+    }
+    .nickname {
+        font-size: 1.05rem !important;
+        padding: 0.08em 0.2em !important;
+        margin-bottom: 6px !important;
+    }
+    .signature {
+        font-size: 0.78rem !important;
+        padding: 0.08em 0.2em !important;
+        margin-bottom: 6px !important;
+    }
+    .social-btns {
+        gap: 8px !important;
+        margin-bottom: 8px !important;
+    }
+    .social-btns a {
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 1.2rem !important;
+        padding: 2px 3px !important;
+    }
+    .info-card {
+        background: none !important;
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 2px !important;
+        text-align: center !important;
+    }
+    .skills-box {
+        background: none !important;
+        box-shadow: none !important;
+        border: none !important;
+    }
+    .skills-box .skill-badge {
+        font-size: 0.85rem !important;
+        padding: 3px 8px !important;
+        border-radius: 13px !important;
+        margin: 2px 3px !important;
+    }
+    .mb-4 {
+        margin-bottom: -28px !important;
+    }
+}
+.sidebar > * {
+    margin-bottom: 14px !important;
+}
+.sidebar .avatar-xl {
+    margin-bottom: 18px !important;
+}
+.sidebar .nickname {
+    margin-bottom: 10px !important;
+}
+.sidebar .signature {
+    margin-bottom: 10px !important;
+}
+.sidebar .social-btns {
+    margin-bottom: 12px !important;
+}
+.sidebar .info-card {
+    margin-bottom: 10px !important;
+}
+.skills-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px 8px;
+}
+.skills-box .skill-badge {
+    font-size: 1rem;
+    padding: 5px 14px;
+    border-radius: 16px;
+    margin: 3px 5px 3px 0;
+    background: rgba(180,220,255,0.45);
+    color: #222;
+    box-shadow: 0 2px 8px #fff4;
+    backdrop-filter: blur(6px);
+    border: none;
+    display: inline-block;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+@media (max-width: 600px) {
+    .site-cards {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        grid-template-rows: 1fr 1fr !important;
+        gap: 14px !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin: 0 auto !important;
+        max-width: 90vw !important;
+    }
+    .site-cards .col-md-4 {
+        flex: unset !important;
+        max-width: unset !important;
+        padding: 0 !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    .site-cards .card {
+        width: 40vw !important;
+        max-width: 120px !important;
+        aspect-ratio: 1/1 !important;
+        min-width: 0 !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        padding: 12px 2px 10px 2px !important;
+        margin: 0 auto !important;
+        border-radius: 18px !important;
+        background: linear-gradient(135deg, rgba(255,255,255,0.75) 60%, rgba(200,230,255,0.45) 100%) !important;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.10) !important;
+        backdrop-filter: blur(8px) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+        transition: box-shadow 0.2s, background 0.2s;
+    }
+    .site-cards .card .card-icon {
+        margin-bottom: 6px !important;
+    }
+    .site-cards .card h5 {
+        font-size: 1rem !important;
+        margin-bottom: 2px !important;
+    }
+    .site-cards .card p, .site-cards .card .mb-2 {
+        font-size: 0.96rem !important;
+        margin-bottom: 8px !important;
+    }
+    .site-cards .card .btn {
+        font-size: 1rem !important;
+        padding: 5px 18px !important;
+        min-width: 80px !important;
+        max-width: 90% !important;
+        margin: 0 auto !important;
+        display: block !important;
+        border-radius: 14px !important;
+    }
+    .site-cards .card .mb-2,
+    .site-cards .card p,
+    .site-cards .card .btn {
+        display: none !important;
+    }
+}
+@media (max-width: 600px) {
+    section.glass.p-4.mb-4 {
+        display: none !important;
+    }
+}
+.card {
+    max-width: 300px !important;
+    width: 90% !important;
+}
+.site-cards {
+    gap: 16px 8px !important;
+}
+.row.site-cards.g-4 {
+    gap: 16px 8px !important;
+    margin-bottom: 18px !important;
+}
+@media (min-width: 900px) {
+    .site-cards {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px !important;
+        justify-items: center;
+        width: 100%;
+        max-width: 750px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .site-cards .col-md-4 {
+        width: 100% !important;
+        max-width: 225px !important;
+        padding: 0 !important;
+        display: block !important;
+    }
+    .site-cards .card {
+        width: 100% !important;
+        max-width: 225px !important;
+        margin: 0 !important;
+    }
+}
+@media (max-width: 900px) and (min-width: 768px) {
+    .site-cards {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px 10px !important;
+        justify-items: center;
+        max-width: 520px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .site-cards .col-md-4 {
+        width: 100% !important;
+        max-width: 240px !important;
+        padding: 0 !important;
+        display: block !important;
+    }
+    .site-cards .card {
+        width: 100% !important;
+        max-width: 240px !important;
+        margin: 0 !important;
+    }
+}
+@media (max-width: 600px) {
+  .sidebar .avatar-xl {
+    margin-bottom: -2px !important;
+    margin-top: 6px !important;
+  }
+}
+</style>
+<script>
+    firework({
+  "excludeElements": ["a"],
+  "particles": [
+    {
+      "shape": "circle",
+      "move": ["emit"],
+      "easing": "easeOutExpo",
+      "colors": [
+      "#ff324a", 
+      "#31ffa6", 
+      "#206eff", 
+      "#ffff99"
+      ],
+      "number": 30,
+      "duration": [1200, 1800],
+      "shapeOptions": {
+        "radius": [16, 32]
+      }
+    }
+  ]
+})
+</script>
+<canvas class="fireworks" style="position:fixed;left:0;top:0;pointer-events:none;z-index:9999"></canvas>
+</body>
+</html> 
