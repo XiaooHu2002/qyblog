@@ -47,7 +47,7 @@ cards:
   - name: 留言
     dis: 公共留言处
     btn: 进入留言
-    ico: fas fa-envelope-open-o
+    ico: fas fa-envelope-open
     url: https://blog.qianyios.top/posts/22484/
   - name: 实验室
     dis: 收集有趣HTML作品
