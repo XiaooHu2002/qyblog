@@ -25,5 +25,8 @@
   "homepage": "https://yourusername.github.io/qyblog",
   "devDependencies": {
     "live-server": "^1.2.1"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
   }
-} 
+}

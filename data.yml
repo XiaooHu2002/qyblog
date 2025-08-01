@@ -49,11 +49,11 @@ cards:
     btn: 进入留言
     ico: fas fa-envelope-open
     url: https://blog.qianyios.top/posts/22484/
-  - name: 实验室
-    dis: 收集有趣HTML作品
-    btn: 进入实验室
+  - name: 文件
+    dis: 文件列表
+    btn: 进入文件区
     ico: fas fa-flask
-    url: #
+    url: ./html\qyFileList
 #页脚
 footer:
   copyright: "© 2024 严千屹"
